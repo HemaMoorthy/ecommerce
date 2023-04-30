@@ -1,5 +1,6 @@
 import axios  from 'axios';
 import React, { useEffect ,useState} from 'react'
+import ProductDisplay from './ProductDisplay';
 
 
 
@@ -17,7 +18,22 @@ const togetAllProducts = async()=>{
     setProducts(res.data.data);
 }
   return (
-    <div>DashBoard</div>
+    <div className='container'>
+        <div className='row'>
+        {
+            product.map((item) => {
+                return(
+                    <div className='col-4'>
+
+                        <ProductDisplay data={item}></ProductDisplay>
+                    </div>
+                )
+            })
+        }
+
+        </div>
+        
+    </div>
   )
 }
 
